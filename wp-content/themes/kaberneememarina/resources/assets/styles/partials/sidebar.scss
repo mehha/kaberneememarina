@@ -1,0 +1,65 @@
+.has-sidebar-primary {
+  .content-wrap {
+    @include media-breakpoint-up(md) {
+      display: flex;
+    }
+
+    .main {
+      padding-top: 3rem;
+      @include media-breakpoint-up(md) {
+        width: 50%;
+        padding-right: 2rem;
+        padding-bottom: 3rem;
+        border-right: 1px solid $gray-light;
+      }
+    }
+
+    .sidebar {
+      padding-top: 2rem;
+      @include media-breakpoint-up(md) {
+        width: 50%;
+        padding-left: 2rem;
+        padding-bottom: 3rem;
+        padding-top: 3rem;
+      }
+    }
+  }
+  &.post-template-default, &.category, &.search-results, &.error404, &.wide {
+    .content-wrap {
+      .main {
+        @include media-breakpoint-up(md) {
+          width: 66%;
+        }
+      }
+
+      .sidebar {
+        @include media-breakpoint-up(md) {
+          width: 34%;
+        }
+      }
+    }
+  }
+}
+
+.sidebar-items {
+  margin-bottom: 2rem;
+  .left {
+    margin-bottom: 1rem;
+    @include media-breakpoint-up(md) {
+      display: flex;
+      align-items: center;
+      padding-right: 0;
+      margin-bottom: 0;
+    }
+  }
+  .right {
+    font-size: $font-size-sm;
+    .item {
+      margin-bottom: .4rem;
+    }
+  }
+}
+
+.sidebar-posts {
+  margin-bottom: 2rem;
+}

@@ -1,0 +1,8 @@
+.category, .sidebar-posts, .search-results {
+  .hentry {
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+      border-bottom: 1px solid $gray-light;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+/.idea
+/.well-known
+/.wp-cli
+/tmp
+/wp-content/uploads/
+/wp-content/cache/
+/wp-content/plugins/ns-cloner-pro/
+/wp-content/plugins/ns-cloner-site-copier/
+
+config-local.php
+config-staging.php
+.wp-toolkit-ignore
+error_log

@@ -1,0 +1,139 @@
+/**
+ * Header
+ */
+
+header.banner {
+  .navbar {
+    background-color: $primary;
+    padding-top: .8rem;
+    padding-bottom: .8rem;
+    @include transition(all, .2s);
+    .not-top & {
+      @include media-breakpoint-up(lg) {
+        padding-top: .3rem;
+        padding-bottom: .3rem;
+      }
+    }
+
+    .facebook-menu-item {
+      a {
+        @include text-hide();
+        &:before {
+          content: '';
+          display: inline-block;
+          background: url('../images/facebook.svg') no-repeat 0 0;
+          background-size: 24px auto;
+          width: 24px;
+          height: 24px;
+        }
+      }
+      //color: #fff;
+      //transform: scale(.8)translateY(-1px);
+      //line-height: 1;
+      @include hover-focus-active {
+        //color: $white-link-hover;
+      }
+    }
+  }
+  .navbar-nav {
+    @include media-breakpoint-down(lg) {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+    li {
+      @extend .nav-item;
+
+      a {
+        @extend .nav-link;
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: 400;
+        @include hover-focus-active {
+          color: $white-link-hover;
+        }
+      }
+      &.current-menu-item,
+      &.current_page_item,
+      &.current-menu-ancestor,
+      &.current-menu-parent,
+      &.current_page_parent,
+      &.current_page_ancestor
+      {
+        > a {
+          color: $secondary;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(lg) {
+    .menu-item-has-children {
+      .sub-menu {
+        padding-left: .5rem;
+        a {
+          font-size: $font-size-sm;
+          text-transform: none;
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    .menu-item-has-children {
+      .sub-menu {
+        display: none;
+        padding-left: .5rem;
+        padding-right: .5rem;
+        padding-bottom: .5rem;
+        background-color: $primary;
+        li::marker {
+          content: none;
+        }
+        a {
+          font-size: $font-size-sm;
+          text-transform: none;
+          font-weight: 400;
+        }
+      }
+
+      &.open {
+        position: relative;
+        .sub-menu {
+          display: block;
+          position: absolute;
+          left: -.5rem;
+        }
+      }
+    }
+  }
+}
+
+.navbar-toggler {
+  padding: 0;
+  .navbar-toggler-icon {
+    line-height: 30px;
+    svg {
+      stroke: #fff;
+    }
+  }
+  @include hover-focus-active {
+    outline: 0;
+    svg {
+      stroke: $secondary;
+    }
+  }
+}
+
+.language-switcher {
+  a {
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
+  }
+}
+
+.admin-bar {
+  .sticky-top {
+    top: 32px;
+  }
+}

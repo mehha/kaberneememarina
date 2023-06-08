@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{1:function(n,o,t){n.exports=t("LnCJ")},LnCJ:function(n,o,t){(function(n){wp.customize("blogname",(function(o){o.bind((function(o){return n(".brand").text(o)}))}))}).call(this,t("xeH2"))},xeH2:function(n,o){!function(){n.exports=this.jQuery}()}},[[1,0]]]);

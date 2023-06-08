@@ -1,0 +1,27 @@
+@each $color-name, $color-value in $theme-colors {
+  .has-#{$color-name}-color {
+    color: $color-value;
+  }
+
+  .has-#{$color-name}-background-color {
+    background-color: $color-value;
+  }
+}
+
+@mixin page-header-title {
+  margin-bottom: 2rem;
+  position: relative;
+  @include media-breakpoint-up(md) {
+    margin-bottom: 2.5rem;
+  }
+  &:after {
+    position: absolute;
+    left: 0;
+    bottom: -.6rem;
+    display: inline-block;
+    content: '';
+    height: 2px;
+    width: 8rem;
+    background-color: $secondary;
+  }
+}

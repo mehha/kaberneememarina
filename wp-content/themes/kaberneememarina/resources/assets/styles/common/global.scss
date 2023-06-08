@@ -1,0 +1,67 @@
+/**
+ * Global
+ */
+
+/**
+ * Block editor color palette utilities
+ * @see https://git.io/JeyD6
+ */
+
+body {
+  font-family: $font-primary;
+  color: $gray-dark;
+}
+
+a {
+  color: $primary;
+  font-weight: 500;
+  @include transition(color, .2s)
+}
+
+strong {
+  //font-weight: 500;
+}
+
+ul {
+  padding-left: 1rem;
+}
+
+.item {
+  position: relative;
+  padding-left: 2rem;
+  svg {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%)scale(.8);
+  }
+}
+
+.post-meta {
+  h1, h2, h3, h4 {
+    margin-bottom: .2rem;
+  }
+  .updated {
+    font-weight: 300;
+    font-size: .9rem;
+  }
+  margin-bottom: 1rem;
+}
+
+.page-header {
+  h1 {
+    @include page-header-title;
+  }
+}
+
+.mehh-title {
+  @include page-header-title;
+}
+
+#the-map {
+  height: 400px;
+}
+
+
+
+

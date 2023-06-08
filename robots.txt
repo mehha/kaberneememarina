@@ -1,0 +1,11 @@
+User-Agent: *
+Allow: /wp-content/uploads/
+Disallow: /wp-content/plugins/
+Disallow: /wp-admin/
+Disallow: /readme.html
+Disallow: /refer/
+
+Sitemap: https://kaberneememarina.ee/sitemap_index.xml
+Sitemap: https://kaberneememarina.ee/et/sitemap_index.xml
+Sitemap: https://kaberneememarina.ee/en/sitemap_index.xml
+Sitemap: https://kaberneememarina.ee/fi/sitemap_index.xml

@@ -1,0 +1,87 @@
+/**
+ * Variables
+ */
+
+@font-face {
+  font-family: "opensans";
+  src:url("../fonts/opensans-light-webfont.woff2") format("woff2"),
+  url("../fonts/opensans-light-webfont.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "opensans";
+  src:url("../fonts/opensans-lightitalic-webfont.woff2") format("woff2"),
+  url("../fonts/opensans-lightitalic-webfont.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "opensans";
+  src:url("../fonts/opensans-regular-webfont.woff2") format("woff2"),
+  url("../fonts/opensans-regular-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "opensans";
+  src:url("../fonts/opensans-italic-webfont.woff2") format("woff2"),
+  url("../fonts/opensans-italic-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "opensans";
+  src:url("../fonts/opensans-semibold-webfont.woff2") format("woff2"),
+  url("../fonts/opensans-semibold-webfont.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "opensans";
+  src:url("../fonts/opensans-semibolditalic-webfont.woff2") format("woff2"),
+  url("../fonts/opensans-semibolditalic-webfont.woff") format("woff");
+  font-weight: 500;
+  font-style: italic;
+  font-display: block;
+}
+
+@font-face {
+  font-family: "opensans";
+  src:url("../fonts/opensans-bold-webfont.woff2") format("woff2"),
+  url("../fonts/opensans-bold-webfont.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+}
+
+$font-primary:          "opensans",Arial,sans-serif;
+
+// Naming example: 		$red-dark;
+
+$theme-colors: (
+  gray-dark: #212529,
+  gray-light: #f4f4f4,
+
+  primary: #1e2d3b,
+  secondary: #edcd1f,
+  yellow-light: #e5d21e14,
+  white-link-hover: darken(#fff, 20%)
+);
+
+$gray-dark: map-get($theme-colors, 'gray-dark');
+$gray-light: map-get($theme-colors, 'gray-light');
+$primary: map-get($theme-colors, 'primary');
+$secondary: map-get($theme-colors, 'secondary');
+$yellow-light: map-get($theme-colors, 'yellow-light');
+$white-link-hover: map-get($theme-colors, 'white-link-hover');

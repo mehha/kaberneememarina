@@ -1,0 +1,59 @@
+/*----Caldera caldera-vorm----*/
+
+$caldera-color: $gray-dark;
+$caldera-border-radius: 0;
+$caldera-border-color: $gray-dark;
+$caldera-border-width: 1px;
+
+.caldera-grid {
+  .input-text, input[type='text'], input[type='input'], input[type='password'], input[type='email'], input[type='number'],
+  input[type='url'], input[type='tel'], input[type='search'], input[type='phone'], textarea.form-control, select, input[type='phone'] {
+    //text-align: left;
+    color: $caldera-color;
+    border-color: $caldera-border-color;
+    border-width: $caldera-border-width!important;
+    background-color: transparent;
+    border-radius: $caldera-border-radius;
+    height: auto;
+    &:focus {
+      box-shadow: none;
+      border-color: $secondary;
+    }
+  }
+  hr {
+    border-top-color: transparent;
+  }
+  input[type="submit"] {
+    font-weight: 500;
+    margin-top: 1rem;
+  }
+
+  .has-error {
+    .form-control {
+      border-color: $primary;
+      &:focus {
+        border-color: $secondary;
+        box-shadow: none;
+      }
+    }
+    .help-block {
+      color: red;
+      font-weight: 300;
+      font-size: 0.9rem;
+    }
+  }
+
+  .form-control::-webkit-input-placeholder {
+    color: $caldera-color;
+  }
+  .form-control:-moz-placeholder { /* Firefox 18- */
+    color: $caldera-color;
+  }
+  .form-control::-moz-placeholder {  /* Firefox 19+ */
+    color: $caldera-color;
+  }
+  .form-control:-ms-input-placeholder {
+    color: $caldera-color;
+  }
+
+}

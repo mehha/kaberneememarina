@@ -1,0 +1,54 @@
+{
+  "private": true,
+  "browserslist": [
+    "extends @wordpress/browserslist-config"
+  ],
+  "scripts": {
+    "build": "cross-env NODE_ENV=development run-s mix",
+    "build:production": "cross-env NODE_ENV=production run-s clean mix",
+    "start": "cross-env NODE_ENV=development run-s \"mix -- --watch\"",
+    "hot": "cross-env NODE_ENV=development run-s build mix:hot",
+    "mix": "webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "mix:hot": "webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "clean": "run-p clean:*",
+    "clean:dist": "rimraf dist",
+    "clean:cache": "rimraf storage/framework/cache/*.php storage/framework/cache/data/*.php",
+    "clean:views": "rimraf storage/framework/views/*.php",
+    "lint": "run-s -c lint:*",
+    "lint:scripts": "eslint resources/assets/scripts",
+    "lint:styles": "stylelint \"resources/assets/**/*.{vue,css,sass,scss,less}\"",
+    "test": "run-s -c lint",
+    "translate": "run-s -c translate:*",
+    "translate:pot": "php wp-cli.phar i18n make-pot . ./resources/languages/sage.pot --ignore-domain --include=\"app,resources/assets,resources/views\"",
+    "translate:js": "php wp-cli.phar i18n make-json ./resources/languages --no-purge --pretty-print"
+  },
+  "devDependencies": {
+    "@tinypixelco/laravel-mix-wp-blocks": "^1.1.0",
+    "@wordpress/babel-preset-default": "^4.17.0",
+    "@wordpress/browserslist-config": "^2.7.0",
+    "@wordpress/dependency-extraction-webpack-plugin": "^2.8.0",
+    "babel-eslint": "^10.1.0",
+    "browser-sync": "^2.26.13",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "cross-env": "^7.0.2",
+    "eslint": "^7.7.0",
+    "eslint-plugin-import": "^2.22.0",
+    "laravel-mix": "^5.0.4",
+    "laravel-mix-copy-watched": "^2.2.4",
+    "laravel-mix-purgecss": "^5.0.0",
+    "npm-run-all": "^4.1",
+    "purgecss-with-wordpress": "^3.0.0",
+    "rimraf": "^3.0.2",
+    "sass": "^1.28.0",
+    "sass-loader": "^10.0.5",
+    "stylelint": "^13.7.2",
+    "stylelint-config-standard": "^20.0.0",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.2",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1",
+    "wp-cli": "0.0.5"
+  }
+}
