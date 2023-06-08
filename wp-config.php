@@ -20,16 +20,22 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'kabernee_wordpress' );
+if ( file_exists( dirname( __FILE__ ) . '/config-local.php' ) ) {
+    include( dirname( __FILE__ ) . '/config-local.php' );
+} elseif ( file_exists( dirname( __FILE__ ) . '/config-staging.php' ) ) {
+    include( dirname( __FILE__ ) . '/config-staging.php' );
+} else {
+    define( 'DB_NAME', '' );
 
-/** MySQL database username */
-define( 'DB_USER', 'kabernee_wp' );
+    /** Database username */
+    define( 'DB_USER', '' );
 
-/** MySQL database password */
-define( 'DB_PASSWORD', '-?T7u00e7cm-' );
+    /** Database password */
+    define( 'DB_PASSWORD', '' );
 
-/** MySQL hostname */
-define( 'DB_HOST', 'MS01.BEEHOSTING.PRO' );
+    /** Database hostname */
+    define( 'DB_HOST', 'localhost' );
+}
 
 /** Database Charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8mb4' );
