@@ -1,3 +1,9 @@
+<Files wp-login.php>
+    order deny,allow
+    deny from all
+    allow from 90.190.183.173
+</Files>
+
 # BEGIN WordPress
 RewriteEngine On
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
