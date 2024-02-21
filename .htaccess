@@ -4,6 +4,101 @@
     allow from 90.190.183.173
 </Files>
 
+RedirectMatch 404 /\.git
+RedirectMatch 403 ^.*/wp-includes/wlwmanifest.xml$
+Options -Indexes
+
+RewriteEngine On
+RewriteRule package-lock\.json$ index.php [L]
+RewriteRule package\.json$ index.php [L]
+
+#Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure
+
+<IfModule mod_headers.c>
+
+  Header always append X-Frame-Options SAMEORIGIN
+  Header set X-Content-Type-Options nosniff
+  Header set X-XSS-Protection "1; mode=block"
+  Header set Feature-Policy "geolocation 'self'; vibrate 'none'"
+
+</IfModule>
+
+# WP REST API BLOCK JSON REQUESTS
+# Block/Forbid Requests to: /wp-json/wp/
+# WP REST API REQUEST METHODS: GET, POST, PUT, PATCH, DELETE
+#RewriteCond %{REQUEST_METHOD} ^(GET|POST|PUT|PATCH|DELETE) [NC]
+#RewriteCond %{REQUEST_URI} ^.*wp-json [NC]
+#RewriteRule ^(.*)$ - [F]
+
+# Block WordPress xmlrpc.php requests
+<Files xmlrpc.php>
+order deny,allow
+deny from all
+</Files>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE text/xml
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE image/x-icon
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE application/rss+xml
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/x-javascript
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE application/xhtml+xml
+  AddOutputFilterByType DEFLATE application/x-font
+  AddOutputFilterByType DEFLATE application/x-font-truetype
+  AddOutputFilterByType DEFLATE application/x-font-ttf
+  AddOutputFilterByType DEFLATE application/x-font-otf
+  AddOutputFilterByType DEFLATE application/x-font-opentype
+  AddOutputFilterByType DEFLATE application/vnd.ms-fontobject
+  AddOutputFilterByType DEFLATE font/ttf
+  AddOutputFilterByType DEFLATE font/otf
+  AddOutputFilterByType DEFLATE font/opentype
+  AddOutputFilterByType DEFLATE application/json
+
+# For Olders Browsers Which Can't Handle Compression
+ BrowserMatch ^Mozilla/4 gzip-only-text/html
+ BrowserMatch ^Mozilla/4\.0[678] no-gzip
+ BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+</IfModule>
+
+# 1 YEAR
+<FilesMatch "\.(flv|ico|pdf|avi|mov|ppt|doc|mp3|wmv|wav|woff)$">
+Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
+
+# 1 WEEK
+<FilesMatch "\.(jpg|jpeg|png|gif|swf|svg)$">
+Header set Cache-Control "max-age=604800, public"
+</FilesMatch>
+
+# 3 HOUR
+<FilesMatch "\.(txt|xml|js|css)$">
+Header set Cache-Control "max-age=604800"
+</FilesMatch>
+
+# NEVER CACHE - notice the extra directives
+<FilesMatch "\.(html|htm|php|cgi|pl)$">
+Header set Cache-Control "max-age=3600, private, no-store, no-cache, must-revalidate"
+</FilesMatch>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|xml|gz)$">
+    Header append Vary: Accept-Encoding
+  </FilesMatch>
+</IfModule>
+
+# Block 80legs crawler - might cause site downtime: http://blog.futtta.be/2012/05/05/ddosed-by-80legs-com-spider/
+SetEnvIfNoCase ^User-Agent$ .*(80legs) HTTP_SAFE_BADBOT
+Deny from env=HTTP_SAFE_BADBOT
+
+AddType image/png .png
+AddType image/svg+xml .svg
+
 # BEGIN WordPress
 RewriteEngine On
 RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
