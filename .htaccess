@@ -1,9 +1,3 @@
-<Files wp-login.php>
-    order deny,allow
-    deny from all
-    allow from 90.190.183.173
-</Files>
-
 RedirectMatch 404 /\.git
 RedirectMatch 403 ^.*/wp-includes/wlwmanifest.xml$
 Options -Indexes
