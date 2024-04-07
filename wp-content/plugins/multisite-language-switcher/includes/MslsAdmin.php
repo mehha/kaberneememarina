@@ -27,7 +27,7 @@ class MslsAdmin extends MslsMain {
 	public static function init() {
 		if ( ! ( $obj = MslsRegistry::get_object( __CLASS__ ) ) ) {
 			$options    = MslsOptions::instance();
-			$collection = MslsBlogCollection::instance();
+			$collection = msls_blog_collection();
 
 			$obj = new static( $options, $collection );
 
@@ -116,12 +116,12 @@ class MslsAdmin extends MslsMain {
 
 		if ( $this->options->is_empty() ) {
 			$message = sprintf(
-				__( 'Multisite Language Switcher is almost ready. You must <a href="%s">complete the configuration process</a>.' ),
+				__( 'Multisite Language Switcher is almost ready. You must <a href="%s">complete the configuration process</a>.', 'multisite-language-switcher' ),
 				esc_url( admin_url( $this->get_options_page_link() ) )
 			);
 		} elseif ( 1 == count( $this->options->get_available_languages() ) ) {
 			$message = sprintf(
-				__( 'There are no language files installed. You can <a href="%s">manually install some language files</a> or you could use a <a href="%s">plugin</a> to download these files automatically.' ),
+				__( 'There are no language files installed. You can <a href="%s">manually install some language files</a> or you could use a <a href="%s">plugin</a> to download these files automatically.', 'multisite-language-switcher' ),
 				esc_url( 'http://codex.wordpress.org/Installing_WordPress_in_Your_Language#Manually_Installing_Language_Files' ),
 				esc_url( 'http://wordpress.org/plugins/wp-native-dashboard/' )
 			);
@@ -156,13 +156,14 @@ class MslsAdmin extends MslsMain {
 	 * @return string
 	 */
 	public function subsubsub() {
-		$arr = [];
+		$icon_type = $this->options->get_icon_type();
 
+		$arr = [];
 		foreach ( $this->collection->get_plugin_active_blogs() as $blog ) {
 			$admin_url = get_admin_url( $blog->userblog_id, $this->get_options_page_link() );
 			$current   = $blog->userblog_id == $this->collection->get_current_blog_id() ? ' class="current"' : '';
 
-			$arr[] = sprintf( '<a href="%1$s"%2$s>%3$s</a>', $admin_url, $current, $blog->get_title() );
+			$arr[] = sprintf( '<a href="%1$s"%2$s>%3$s</a>', $admin_url, $current, $blog->get_title( $icon_type ) );
 		}
 
 		return empty( $arr ) ? '' : sprintf( '<ul class="subsubsub"><li>%s</li></ul>', implode( ' | </li><li>', $arr ) );
@@ -225,6 +226,7 @@ class MslsAdmin extends MslsMain {
 	public function main_section(): int {
 		$map = [
 			'display'               => __( 'Display', 'multisite-language-switcher' ),
+			'admin_display'         => __( 'Admin Display', 'multisite-language-switcher' ),
 			'sort_by_description'   => __( 'Sort languages', 'multisite-language-switcher' ),
 			'output_current_blog'   => __( 'Current language link', 'multisite-language-switcher' ),
 			'only_with_translation' => __( 'Translation links', 'multisite-language-switcher' ),
@@ -315,6 +317,13 @@ class MslsAdmin extends MslsMain {
 	 */
 	public function display() {
 		echo ( new Select( 'display', MslsLink::get_types_description(), $this->options->display ) )->render();
+	}
+
+	/**
+	 * Shows the select-form-field 'admin_display'
+	 */
+	public function admin_display() {
+		echo ( new Select( 'admin_display', array( 'flag' => __( 'Flag', 'multisite-language-switcher' ), 'label' => __( 'Label', 'multisite-language-switcher' ) ), $this->options->admin_display ) )->render();
 	}
 
 	/**

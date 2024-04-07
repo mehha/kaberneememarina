@@ -11,3 +11,9 @@ config-local.php
 config-staging.php
 .wp-toolkit-ignore
 error_log
+/assets/
+cookie.txt
+.dockerignore
+.env
+docker-compose.yml
+Dockerfile

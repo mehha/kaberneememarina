@@ -3,22 +3,24 @@
 /**
  * File is auto-generated
  * 
-* 129 translations-teams for WordPress found
+* 131 translations-teams for WordPress found
  */
 // Unhandled language: am (Amharic)
 // Unhandled language: arg (Aragonese)
 // Unhandled language: ar (Arabic)
 // Unhandled language: dsb (Lower Sorbian)
+// Unhandled language: fy (Frisian)
 // Unhandled language: hsb (Upper Sorbian)
 // Unhandled language: kn (Kannada)
+// Unhandled language: kir (Kyrgyz)
 // Unhandled language: snd (Sindhi)
 // Unhandled language: sw (Swahili)
 return $className = [
     'af' => 'flag-icon-za',
     'ary' => 'flag-icon-ma',
     'as' => 'flag-icon-in',
-    'az' => 'flag-icon-az',
     'azb' => 'flag-icon-az',
+    'az' => 'flag-icon-az',
     'bel' => 'flag-icon-by',
     'bg_BG' => 'flag-icon-bg',
     'bn_BD' => 'flag-icon-bd',
@@ -29,40 +31,40 @@ return $className = [
     'cs_CZ' => 'flag-icon-cz',
     'cy' => 'flag-icon-gb-ls',
     'da_DK' => 'flag-icon-dk',
-    'de_DE_formal' => 'flag-icon-de',
     'de_AT' => 'flag-icon-at',
     'de_CH_informal' => 'flag-icon-ch',
     'de_CH' => 'flag-icon-ch',
     'de_DE' => 'flag-icon-de',
+    'de_DE_formal' => 'flag-icon-de',
     'dzo' => 'flag-icon-bt',
     'el' => 'flag-icon-gr',
-    'en_AU' => 'flag-icon-au',
-    'en_GB' => 'flag-icon-gb',
-    'en_CA' => 'flag-icon-ca',
-    'en_NZ' => 'flag-icon-nz',
     'en_ZA' => 'flag-icon-za',
+    'en_GB' => 'flag-icon-gb',
+    'en_AU' => 'flag-icon-au',
+    'en_NZ' => 'flag-icon-nz',
+    'en_CA' => 'flag-icon-ca',
     'eo' => 'flag-icon-eu',
-    'es_CO' => 'flag-icon-co',
     'es_VE' => 'flag-icon-ve',
-    'es_AR' => 'flag-icon-ar',
-    'es_CR' => 'flag-icon-cr',
+    'es_MX' => 'flag-icon-mx',
     'es_ES' => 'flag-icon-es',
+    'es_CR' => 'flag-icon-cr',
+    'es_CO' => 'flag-icon-co',
+    'es_EC' => 'flag-icon-ec',
     'es_PE' => 'flag-icon-pe',
     'es_DO' => 'flag-icon-do',
-    'es_CL' => 'flag-icon-cl',
     'es_UY' => 'flag-icon-uy',
+    'es_CL' => 'flag-icon-cl',
     'es_PR' => 'flag-icon-pr',
+    'es_AR' => 'flag-icon-ar',
     'es_GT' => 'flag-icon-gt',
-    'es_EC' => 'flag-icon-ec',
-    'es_MX' => 'flag-icon-mx',
     'et' => 'flag-icon-ee',
     'eu' => 'flag-icon-es',
     'fa_IR' => 'flag-icon-ir',
     'fa_AF' => 'flag-icon-af',
     'fi' => 'flag-icon-fi',
     'fr_CA' => 'flag-icon-ca',
-    'fr_BE' => 'flag-icon-be',
     'fr_FR' => 'flag-icon-fr',
+    'fr_BE' => 'flag-icon-be',
     'fur' => 'flag-icon-it',
     'gd' => 'flag-icon-gb-sct',
     'gl_ES' => 'flag-icon-es',
@@ -95,18 +97,18 @@ return $className = [
     'my_MM' => 'flag-icon-mm',
     'nb_NO' => 'flag-icon-no',
     'ne_NP' => 'flag-icon-np',
-    'nl_BE' => 'flag-icon-be',
     'nl_NL_formal' => 'flag-icon-nl',
     'nl_NL' => 'flag-icon-nl',
+    'nl_BE' => 'flag-icon-be',
     'nn_NO' => 'flag-icon-no',
     'oci' => 'flag-icon-es-ca',
     'pa_IN' => 'flag-icon-in',
     'pl_PL' => 'flag-icon-pl',
     'ps' => 'flag-icon-af',
-    'pt_BR' => 'flag-icon-br',
-    'pt_PT_ao90' => 'flag-icon-90',
     'pt_AO' => 'flag-icon-ao',
     'pt_PT' => 'flag-icon-pt',
+    'pt_BR' => 'flag-icon-br',
+    'pt_PT_ao90' => 'flag-icon-90',
     'ro_RO' => 'flag-icon-ro',
     'ru_RU' => 'flag-icon-ru',
     'sah' => 'flag-icon-ru',
@@ -131,9 +133,9 @@ return $className = [
     'ur' => 'flag-icon-pk',
     'uz_UZ' => 'flag-icon-uz',
     'vi' => 'flag-icon-vn',
+    'zh_TW' => 'flag-icon-tw',
     'zh_CN' => 'flag-icon-cn',
     'zh_HK' => 'flag-icon-hk',
-    'zh_TW' => 'flag-icon-tw',
 ];
 
 /**

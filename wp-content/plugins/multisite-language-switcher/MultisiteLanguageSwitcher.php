@@ -7,7 +7,7 @@
  * @wordpress-plugin
  *
  * Plugin Name: Multisite Language Switcher
- * Version: 2.5.8
+ * Version: 2.6.3
  * Plugin URI: http://msls.co/
  * Description: A simple but powerful plugin that will help you to manage the relations of your contents in a multilingual multisite-installation.
  * Author: Dennis Ploetner
@@ -40,7 +40,7 @@ if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
  * @author Dennis Ploetner <re@lloc.de>
  */
 if ( ! defined( 'MSLS_PLUGIN_VERSION' ) ) {
-	define( 'MSLS_PLUGIN_VERSION', '2.5.8' );
+	define( 'MSLS_PLUGIN_VERSION', '2.6.3' );
 	define( 'MSLS_PLUGIN_PATH', plugin_basename( __FILE__ ) );
 	define( 'MSLS_PLUGIN__FILE__', __FILE__ );
 
@@ -101,24 +101,50 @@ if ( ! defined( 'MSLS_PLUGIN_VERSION' ) ) {
 	 *
 	 * @return string
 	 */
-	function get_msls_blog_description( string $locale ): string {
-		$blog = \lloc\Msls\MslsBlogCollection::instance()->get_blog( $locale );
+	function get_msls_blog_description( string $locale, string $default = '' ): string {
+		$blog = msls_blog( $locale );
 
-		return $blog->get_description();
+		return $blog ? $blog->get_description() : $default;
 	}
 
 	/**
 	 * Gets the permalink for a translation of the current post in a given language
 	 *
 	 * @param string $locale
+	 * @param string $default
 	 *
 	 * @return string
 	 */
-	function get_msls_permalink( $locale ) {
-		$options = \lloc\Msls\MslsOptions::create();
-		$blog    = \lloc\Msls\MslsBlogCollection::instance()->get_blog( $locale );
+	function get_msls_permalink( string $locale, string $default = '' ): string {
+		$url  = null;
+		$blog = msls_blog( $locale );
 
-		return $blog->get_url( $options );
+		if ( $blog ) {
+			$options = \lloc\Msls\MslsOptions::create();
+			$url     = $blog->get_url( $options );
+		}
+
+		return $url ?? $default;
+	}
+
+	/**
+	 * Gets a blog by locale
+	 *
+	 * @param string $locale
+	 *
+	 * @return \lloc\Msls\MslsBlog|null
+	 */
+	function msls_blog( string $locale ): ?\lloc\Msls\MslsBlog {
+		return msls_blog_collection()->get_blog( $locale );
+	}
+
+	/**
+	 * Gets the MslsBlogCollection instance
+	 *
+	 * @return \lloc\Msls\MslsBlogCollection
+	 */
+	function msls_blog_collection(): \lloc\Msls\MslsBlogCollection {
+		return \lloc\Msls\MslsBlogCollection::instance();
 	}
 
 }
